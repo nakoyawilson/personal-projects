@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import random
 
 # Ask user to input list of tasks separated by commas
