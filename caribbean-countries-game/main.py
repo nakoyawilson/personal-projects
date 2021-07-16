@@ -21,10 +21,7 @@ while game_is_on:
     answer_country = screen.textinput(title=f"{score}/{number_of_countries} Countries Correct",
                                       prompt="Name a country:").title()
     if answer_country == "Exit":
-        to_learn = []
-        for country in country_list:
-            if country not in correct_guesses:
-                to_learn.append(country)
+        to_learn = [country for country in country_list if country not in correct_guesses]
         new_data = pandas.DataFrame(to_learn, columns=["country"])
         new_data.to_csv("countries_to_learn.csv")
         break
