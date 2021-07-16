@@ -1,6 +1,5 @@
 import turtle
-
-# import pandas
+import pandas
 
 screen = turtle.Screen()
 screen.title("The Caribbean Region Game")
@@ -12,7 +11,7 @@ answer.penup()
 answer.hideturtle()
 
 data = pandas.read_csv("caribbean_countries.csv")
-country_list = data.state.to_list()
+country_list = data.country.to_list()
 number_of_countries = len(country_list)
 
 game_is_on = True
@@ -33,7 +32,7 @@ while game_is_on:
         if answer_country in correct_guesses:
             pass
         else:
-            country = data[data.coutry == answer_country]
+            country = data[data.country == answer_country]
             answer.goto(int(country.x), int(country.y))
             answer.write(f"{answer_country}")
             correct_guesses.append(answer_country)
