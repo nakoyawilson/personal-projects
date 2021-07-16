@@ -34,12 +34,13 @@ while game_is_on:
         else:
             country = data[data.country == answer_country]
             answer.goto(int(country.x), int(country.y))
-            answer.write(f"{answer_country}")
+            answer.write(f"{answer_country}", font=("Arial", 10, "normal"))
             correct_guesses.append(answer_country)
     score = len(correct_guesses)
     if score == number_of_countries:
-        answer.goto(0, 250)
-        answer.write("Congratulations! You named all the countries in the Caribbean Region.")
+        answer.goto(-320, 250)
+        answer.write("Congratulations! You named all the countries in the Caribbean Region.",
+                     font=("Arial", 20, "normal"))
         game_is_on = False
 
 screen.exitonclick()
@@ -48,6 +49,7 @@ screen.exitonclick()
 # # Source code from: https://stackoverflow.com/questions/42878641/get-mouse-click-coordinates-in-python-turtle
 # def get_mouse_click_coor(x, y):
 #     print(x, y)
+#
 #
 # turtle.onscreenclick(get_mouse_click_coor)
 #
